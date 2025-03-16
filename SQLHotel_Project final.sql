@@ -1,8 +1,8 @@
-/*יצירת טבלת מלונות*/
+
 
 create table Hotels
 (
-           HotelNumber int Primary Key,  /* מפתח ראשי*/
+           HotelNumber int Primary Key,  /* ֳ®ֳ´ֳ÷ֳ§ ֳ¸ֳ ֳ¹ֳ©*/
            HotelName varchar (50) not null,
            Country varchar (50) null,
            City varchar (50) null,
@@ -14,7 +14,7 @@ create table Hotels
  )
 
 
- /* הוספת ערכי המלונות */
+ /* ֳ₪ֳ¥ֳ±ֳ´ֳ÷ ֳ²ֳ¸ֳ«ֳ© ֳ₪ֳ®ֳ¬ֳ¥ֳ°ֳ¥ֳ÷ */
 
 
 INSERT INTO Hotels
@@ -37,7 +37,7 @@ INSERT INTO Hotels
             (7,'Morrison House Old','United States','Alexandria',1087444336,0,4,2),
             (9,'Taj Holiday Village Resort&Spa','India','Goa',9178005466,3,5,3),
             (12,'Sheraton Greece','Greece','Athens',30578925,1,4,0),
-			(13,'Pana Bariloche','Albania','Albanien',356788412,1,3,1),
+	    (13,'Pana Bariloche','Albania','Albanien',356788412,1,3,1),
             (15,'Bahiaxdia Saavedra','Argentina','Bahia Blanca',5688897410,1,5,4),
             (16,'Sheraton Vancouver Wall Centre','Canada','Vancouver',77865432108,3,4,0),
             (22,'Sheraton Hsinchu Hotel - Zhubei City','Taiwan','Zhubei City',886797901125,4,5,3),
@@ -62,23 +62,23 @@ GO
 
 
 
-/*יצירת טבלת סוגי חדרים*/
+
 
 create table RoomType
 (
-             HotelRoomType varchar(50) Primary Key,    /*מפתח ראשי */
+             HotelRoomType varchar(50) Primary Key,   
              RoomName varchar(50),
-		     RoomTypePrice money 
+             RoomTypePrice money 
   )
  
 
 
- /*הוספת ערכי סוגי חדרים*/
+ 
 
  insert into RoomType
  (           HotelRoomType,    
              RoomName,
-	         RoomTypePrice
+	     RoomTypePrice
  )
 
 
@@ -107,19 +107,17 @@ create table RoomType
 			  
 GO
 
-/*יצירת טבלת סוגי נוף*/
 
 
 create table RoomView
 (
-             ViewType varchar (50) Primary Key,    /*מפתח ראשי */
+             ViewType varchar (50) Primary Key,   
              ViewName varchar (50)
  )
  
 
 
  
- /*הוספת ערכי סוגי נוף*/
 
  insert into RoomView
  (           ViewType, 
@@ -155,7 +153,7 @@ create table RoomView
 
 GO
 
-/* יצירת טבלת חדרים*/
+
 
 CREATE TABLE Rooms
 (
@@ -164,22 +162,22 @@ CREATE TABLE Rooms
              HotelRoomType VARCHAR(50),
              ViewType VARCHAR(50) NOT NULL,
              RoomSize INT NULL,
-             Balcony BIT NOT NULL DEFAULT 0                                  /* למרפסת בחדר BOOLEAN  הגדרת */
-			 PRIMARY KEY (HotelNumber, RoomNumber),                          /* מפתח ראשי*/
-             FOREIGN KEY (HotelNumber) REFERENCES Hotels(HotelNumber),       /* מפתח זר של טבלת מלון*/
-             FOREIGN KEY (HotelRoomType) REFERENCES RoomType(HotelRoomType), /* מפתח זר של טבלת סוגי חדרים*/
-             FOREIGN KEY (ViewType) REFERENCES RoomView(ViewType)            /* מפתח זר של טבלת סוגי נוף*/
+             Balcony BIT NOT NULL DEFAULT 0                                 
+	     PRIMARY KEY (HotelNumber, RoomNumber),                         
+             FOREIGN KEY (HotelNumber) REFERENCES Hotels(HotelNumber),       
+             FOREIGN KEY (HotelRoomType) REFERENCES RoomType(HotelRoomType), 
+             FOREIGN KEY (ViewType) REFERENCES RoomView(ViewType)          
 )
 
 
- /*הוספת ערכי חדרים*/
+ 
 
  insert into Rooms
  (           
              HotelNumber,
              RoomNumber,
              HotelRoomType,
-	         ViewType, 
+	     ViewType, 
              RoomSize,
              Balcony
  )
@@ -190,12 +188,12 @@ VALUES
                (7,102,'STANDARD','P',22,1),
                (9,103,'STANDARD','M',22,0),
                (12,105,'FamilyRoom','M',32,1),
-			   (13,502,'Suite','S',36,1),
+	       (13,502,'Suite','S',36,1),
                (15,106,'Twin Room','MV',19,1),
                (16,109,'Studio','CS',17,1),
                (22,110,'Studio','PK',17,0),
                (32,190,'Suite','S',25,1),
-			   (33,200,'STANDARD','C',22,1),
+	       (33,200,'STANDARD','C',22,1),
                (50,201,'STANDARD','C',22,1),
                (51,202,'STANDARD','P',22,1),
                (52,202,'Studio2','S',20,0),
@@ -210,37 +208,37 @@ VALUES
                
      GO     
 	 
-/*יצירת טבלת אורחים*/
+
 
 create table HotelGuests
 (           
-             PassportCountry varchar (20) not null,
-             PassportNumber varchar (20)  not null,
-			 FirstName varchar (20) not null,
-			 LastName varchar (20) not null,
-			 Nickname varchar (20) null,
-			 Country varchar (20) null,
-			 City varchar (20) null, 
-			 Street varchar (50) null,
-			 MobilePhone  varchar (20) not null, 
-      CHECK (MobilePhone NOT LIKE '%[^0-9]%' AND LEN(MobilePhone) > 0),  /* (constraint)   חייב להכיל רק ספרות*/
-Primary Key ( PassportCountry,PassportNumber)      /*מפתח ראשי*/
+        PassportCountry varchar (20) not null,
+        PassportNumber varchar (20)  not null,
+	FirstName varchar (20) not null,
+	LastName varchar (20) not null,
+	Nickname varchar (20) null,
+	Country varchar (20) null,
+	City varchar (20) null, 
+	Street varchar (50) null,
+	MobilePhone  varchar (20) not null, 
+      CHECK (MobilePhone NOT LIKE '%[^0-9]%' AND LEN(MobilePhone) > 0),  /* (constraint)   
+Primary Key ( PassportCountry,PassportNumber)     
 
 )
 
 
-/*הוספת ערכי פרטי אורחים*/
+
 
 INSERT INTO HotelGuests
-(           PassportCountry,
-            PassportNumber,
-		    FirstName,
-			LastName,
-			Nickname,
-			Country,
-			City,
-			Street,
-			MobilePhone 
+(       PassportCountry,
+        PassportNumber,
+	FirstName,
+	LastName,
+	Nickname,
+	Country,
+	City,
+	Street,
+	MobilePhone 
 )
    VALUES
    
@@ -269,29 +267,29 @@ INSERT INTO HotelGuests
           
    GO         
 			
-/*יצירת טבלה הזמנות*/
+
 
 create table HotelReservations
 
-(            ReservationNumber int Primary Key,      /* מפתח ראשי*/
-             PassportCountry varchar (20) not null,
-			 PassportNumber varchar (20) not null,
-			 HotelNumber int not null,
-			 RoomNumber int not null,
-			 ArrivalDate date not null,
-             RoomNights int not null,
-			 NumberofGuests numeric not null, 
-			 TotalPrice Money not null, 
- FOREIGN KEY (PassportCountry,PassportNumber) REFERENCES HotelGuests(PassportCountry,PassportNumber),    /* מפתח זר של טבלת אורחים */
- FOREIGN KEY (HotelNumber) REFERENCES Hotels(HotelNumber),                                                /*מפתח זר של טבלת מלון*/
- FOREIGN KEY (HotelNumber, RoomNumber) REFERENCES Rooms(HotelNumber, RoomNumber)                         /*מפתח זר של טבלת חדרים*/
+(       ReservationNumber int Primary Key,    
+        PassportCountry varchar (20) not null,
+	PassportNumber varchar (20) not null,
+	HotelNumber int not null,
+	RoomNumber int not null,
+	ArrivalDate date not null,
+        RoomNights int not null,
+	NumberofGuests numeric not null, 
+	TotalPrice Money not null, 
+ FOREIGN KEY (PassportCountry,PassportNumber) REFERENCES HotelGuests(PassportCountry,PassportNumber),   
+ FOREIGN KEY (HotelNumber) REFERENCES Hotels(HotelNumber),                                              
+ FOREIGN KEY (HotelNumber, RoomNumber) REFERENCES Rooms(HotelNumber, RoomNumber)                       
 
 )
 
 
 
 
- /* הוספת ערכי הזמנות*/
+ /* ֳ₪ֳ¥ֳ±ֳ´ֳ÷ ֳ²ֳ¸ֳ«ֳ© ֳ₪ֳ¦ֳ®ֳ°ֳ¥ֳ÷*/
 
 
 INSERT INTO HotelReservations
