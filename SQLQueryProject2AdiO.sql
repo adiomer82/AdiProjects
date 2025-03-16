@@ -1,5 +1,5 @@
 
------שאלה 1
+
 
 WITH TotalSalesByYears 
 AS (
@@ -16,7 +16,7 @@ YearlyLinearIncome AS (
         Year,
         IncomePerYear,
         NumberOfDistinctMonths,
-        (IncomePerYear / NumberOfDistinctMonths) * 12 AS YearlyLinearIncome,  -- התאמה להכנסה השנתית לפי מספר החודשים
+        (IncomePerYear / NumberOfDistinctMonths) * 12 AS YearlyLinearIncome,  
         LAG((IncomePerYear / NumberOfDistinctMonths) * 12) OVER (ORDER BY Year) AS PreviousYearLinearIncome
     FROM TotalSalesByYears
 )
@@ -36,7 +36,7 @@ ORDER BY Y.Year
 GO
 
 
----שאלה 2
+
 
 WITH TOP5CLIENTS AS (
     SELECT 
@@ -71,7 +71,7 @@ WHERE DNR <= 5
 ORDER BY TheYear, TheQuarter, DNR
 
 GO
-----שאלה 3
+
 
 SELECT TOP 10
     OL.StockItemID,
@@ -84,7 +84,7 @@ ORDER BY TotalProfit DESC
 
 GO
 
-----שאלה 4
+
 
 SELECT 
     StockItemID,
@@ -98,7 +98,7 @@ ORDER BY NominalProductProfit DESC
 
 GO
 
------שאלה 5
+
 
 SELECT
     CONCAT(S.SupplierID, '-', S.SupplierName) AS SupplierDetails,
@@ -126,7 +126,7 @@ ORDER BY S.SupplierID
 
 GO
 
-----שאלה 6
+
 
 SELECT TOP 5
     CU.CustomerID,
@@ -154,7 +154,7 @@ ORDER BY
    SUM(IVL.ExtendedPrice) DESC
 GO
 
-----שאלה 7 
+
 
 WITH MonthlyData AS (
     SELECT 
@@ -215,7 +215,7 @@ ORDER BY
 
 GO
 
-----שאלה 8 
+
 
 SELECT 
     OrderMonth,
@@ -239,7 +239,6 @@ ORDER BY OrderMonth
 
 GO 
 
------שאלה 9
 
 WITH OrderInfo AS (
     SELECT 
@@ -271,7 +270,7 @@ ORDER BY CustomerID
 
 GO
 
-----שאלה 10 
+
 
 WITH CustomerCategories AS (
     SELECT     
