@@ -14,7 +14,7 @@ create table Hotels
  )
 
 
- /* äåñôú òøëé äîìåðåú */
+
 
 
 INSERT INTO Hotels
