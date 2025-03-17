@@ -2,7 +2,7 @@
 
 create table Hotels
 (
-           HotelNumber int Primary Key,  /* îôúç øàùé*/
+           HotelNumber int Primary Key, 
            HotelName varchar (50) not null,
            Country varchar (50) null,
            City varchar (50) null,
@@ -240,6 +240,7 @@ INSERT INTO HotelGuests
 	Street,
 	MobilePhone 
 )
+	
    VALUES
    
           ('MA',88895611,'Eivett','Batitto','Eav','Morocco','Marrakech','Allastreet 12',212212342094),
@@ -289,20 +290,20 @@ create table HotelReservations
 
 
 
- /* äåñôú òøëé äæîðåú*/
+
 
 
 INSERT INTO HotelReservations
 (
             ReservationNumber,
             PassportCountry,
-			PassportNumber,
-		    HotelNumber,
-			RoomNumber,
-			ArrivalDate,
-			RoomNights,
-			NumberofGuests, 
-		    TotalPrice 
+	    PassportNumber,
+	    HotelNumber,
+	    RoomNumber,
+	    ArrivalDate,
+	    RoomNights,
+	    NumberofGuests, 
+	    TotalPrice 
 )
 
 
@@ -330,7 +331,7 @@ INSERT INTO HotelReservations
       (75562,'CU',70012312,90,407,'2024-03-06',6,4,5000),
       (83578,'IL',24378901,13,502,'2025-04-10',2,4,4400)
      
-   
+   		
 
 
            
